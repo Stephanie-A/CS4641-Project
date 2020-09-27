@@ -1,5 +1,5 @@
 :root {
-    --color1: 	#011f4b;
+    --color1:	#011f4b;
     --color2: #03396c;
     --color3: #005b96;
     --color4: #6497b1;
@@ -23,7 +23,7 @@ h1, h2 {
     text-align: center;
 }
 
-h1 {
+.title {
     font-size: 3rem;
 }
 
