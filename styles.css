@@ -16,11 +16,17 @@ body {
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-size: 1rem;
+}
 
+img {
+    width: 80vw;
+    height: 50vh;
 }
 
 h1, h2 {
     text-align: center;
+    font-size: 2rem;
 }
 
 .title {
@@ -35,8 +41,36 @@ section > p {
     padding: 15px;
     background-color: white;
     border: 10px solid var(--color1);
+    word-wrap: break-word;
 }
 
 section {
     padding: 10px 40px 10px 40px;
 }
+
+@media (max-width: 450px) {
+    img {
+        width: 200px;
+        height: 90px;
+    }
+
+    body {
+        font-size: 0.5rem;
+    }
+
+    h1,h2 {
+        font-size: 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    section {
+        padding: 5px 20px 5px 20px;
+    }
+  }
