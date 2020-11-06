@@ -12,7 +12,10 @@
       <!-- Summary Figure -->
       <section>
         <h2>Summary Figure</h2>
-        <img src="chart.png"/>
+        <div style="width: 100%"> 
+          <img src="chart.png" style="width:100%"/>
+        </div>
+
       </section>
 
       <!-- Proposed Introduction/Background -->
@@ -49,7 +52,32 @@
           with relevant feature engineering, and a set of most impactful features found via preliminary results 
           from unsupervised learning.
         </p>
-        <p><b>Unsupervised Learning Portion: </b></p>
+        <b>Unsupervised Learning Portion: </b>
+        <h4>Principal Component Analysis</h4>
+        <p>
+          When we created the correlation matrix of our dataset, we saw just how many of our features were strongly 
+          correlated with others. Because of this, we realized we could distill our dataset down to a small number 
+          of features and still be able to create accurate clusters, perhaps even more accurate clusters than what 
+          could be made with the original dataset. To do this, we relied on the PCA algorithm. The PCA algorithm 
+          takes in a dataset and creates a new set of orthogonal features, each a linear transformation of the original 
+          features, and orders the features by the variance they contribute to the total variance of the dataset. We 
+          used the PCA class of the scikit-learn python library to run PCA on our dataset, and then plotted the explained 
+          variance ratio of each new feature. 
+          </p>
+          <div class="pca-image-container">
+            <div class="singular-values-div">
+              <img src="singular_values.png"class="singular-values-img" ></img>
+            </div>
+            <div class="explain-variance-div">
+              <img src="explain_variance.png" class="explain-variance-img"></img>
+            </div>
+          </div>
+          
+        <p>
+          As you can see in the graphs, the vast majority of the variance in the dataset is contained by only a handful of 
+          the variables. We decided to limit our dataset to the top 5 generated features, as they contained nearly 95% of 
+          the variance of the dataset.  
+        </p>
         <p><b>Supervised Learning Portion: </b>
           With regards to next steps, we plan to begin work on the supervised learning portion of the project. 
           We plan to use supervised learning to train a model which will be able to predict how a state will 
