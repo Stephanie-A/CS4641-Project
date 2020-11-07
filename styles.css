@@ -1,5 +1,5 @@
 :root {
-    --color1:	#011f4b;
+    --color1: #011f4b;
     --color2: #03396c;
     --color3: #005b96;
     --color4: #6497b1;
@@ -33,12 +33,12 @@ section > p {
 }
 
 .container {
-    padding: 6em;
+    padding: 15px;
     background-color: white;
     border: 10px solid var(--color1);
     word-wrap: break-word;
-    margin-left: 20em;
-    margin-right: 20em;
+    margin-left: 6em;
+    margin-right: 6em;
 }
 
 section {
