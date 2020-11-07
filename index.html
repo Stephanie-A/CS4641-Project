@@ -52,6 +52,11 @@
           with relevant feature engineering, and a set of most impactful features found via preliminary results 
           from unsupervised learning.
         </p>
+        <b>Data Combination/Cleaning </b>
+        <p>       
+        When collecting our data, we wanted to consider features from reliable data sources that were most likely to have an effect on political data. We focused on three    different categories of data: demographic, economic, and political data. The demographic data, extracted from the census, highlights sex, race, age (in ranges), and hispanic descent. Economic data, including GDP, personal consumption expenditure, and personal income are sourced from the bureau of economic analysis. Lastly, presidential approval rating from Gallup polls and data on congressional seats completed the last component of our feature set: political data.
+          Due to constraints from being able to meet in person, we decided that entering all of our data into a Google Sheet would be the best way to combine all of our features. We had 100 rows, one for each state in the years 2012 and 2016, and 26 columns. Many of our values within features were very large, so we normalized the features between 0 and 1. The Google Sheet was then exported as a csv file so that we were able to use machine learning libraries and parse data using Python with ease. 
+        </p>
         <b>Unsupervised Learning Portion: </b>
         <h4>Principal Component Analysis</h4>
         <p>
@@ -72,12 +77,19 @@
               <img src="explain_variance.png" class="explain-variance-img"></img>
             </div>
           </div>
-          
         <p>
           As you can see in the graphs, the vast majority of the variance in the dataset is contained by only a handful of 
           the variables. We decided to limit our dataset to the top 5 generated features, as they contained nearly 95% of 
           the variance of the dataset.  
         </p>
+        <p>
+        We compared our KMeans results with 2 clusters to the true results of the 2012 and 2016 election in order to calculate a misclassification rate. 
+        </p>
+        <div class="pie-graph-container">
+            <div class="pie-graph-div">
+              <img src="Classification Accuracy.png"class="pie-graph-img" ></img>
+            </div>
+        </div>
         <p><b>Supervised Learning Portion: </b>
           With regards to next steps, we plan to begin work on the supervised learning portion of the project. 
           We plan to use supervised learning to train a model which will be able to predict how a state will 
@@ -115,8 +127,7 @@
         <h2>Discussion</h2>
         <p>
           One minor risk is we believe that election predictions can affect voting behavior, but overall we do 
-          not think that there are significant risks associated with this project. We are aiming to finish our 
-          analysis and generate predictions before the election. In the final stages of our model, we will run 
+          not think that there are significant risks associated with this project. In the final stages of our model, we will run 
           a 5-fold cross validation with our existing data. We will then use our model to predict the 2020 presidential 
           election, which will allow us to verify the model.
         </p>
@@ -137,13 +148,22 @@
           www.pewresearch.org/2020/09/23/the-changing-racial-and-ethnic-composition-of-the-u-s-electorate/.
         </p>
         <p>
+        Bureau, US Census. “State Population by Characteristics: 2010-2019.” The United States Census Bureau, 22 June 2020, www.census.gov/data/datasets/time-series/demo/popest/2010s-state-detail.html. 
+        </p>
+        <p>
           Chen, Yunzhu, et al. “Predicting U.S. President Election Result Based on Google Insights.” Stanford CS 229, 
           14 Dec. 2014, 
           cs229.stanford.edu/proj2012/ChenZhangYue-PredictingUSPresidentElectionResultBasedOnGoogleInsights.pdf. 
         </p>
         <p>
+        “Data.” Data | MIT Election Lab, 29 May 2019, electionlab.mit.edu/data. 
+        </p>
+        <p>
           Hummel, Patrick, and David Rothschild. “Fundamental Models for Forecasting Elections at the State Level.” 
           Electoral Studies, Pergamon, 4 June 2014, www.sciencedirect.com/science/article/pii/S0261379414000602. 
+        </p>
+        <p>
+        “United States: U.S. Bureau of Economic Analysis (BEA).” United States | U.S. Bureau of Economic Analysis (BEA), www.bea.gov/data/by-place-us. 
         </p>
       </section>
     </div>
