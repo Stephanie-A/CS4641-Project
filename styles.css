@@ -33,7 +33,7 @@ section > p {
 }
 
 .container {
-    padding: 15px;
+    padding: 6em;
     background-color: white;
     border: 10px solid var(--color1);
     word-wrap: break-word;
