@@ -37,8 +37,8 @@ section > p {
     background-color: white;
     border: 10px solid var(--color1);
     word-wrap: break-word;
-    margin-left: 6em;
-    margin-right: 6em;
+    margin-left: 4em;
+    margin-right: 4em;
 }
 
 section {
