@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
   </head>
   <body>
-    <div class="title">Politi<b>CS</b></div>
+    <div class="title"><a href="https://github.com/Stephanie-A/CS4641-Project">Politi<b>CS</b></a></div>
     <p>Stephanie Almeida, Anna Munns, and Leo Ricci</p>
     <div class="container">
       <!-- Summary Figure -->
@@ -54,10 +54,19 @@
         </p>
         <b>Data Combination/Cleaning </b>
         <p>       
-        When collecting our data, we wanted to consider features from reliable data sources that were most likely to have an effect on political data. We focused on three    different categories of data: demographic, economic, and political data. The demographic data, extracted from the census, highlights sex, race, age (in ranges), and hispanic descent. Economic data, including GDP, personal consumption expenditure, and personal income are sourced from the bureau of economic analysis. Lastly, presidential approval rating from Gallup polls and data on congressional seats completed the last component of our feature set: political data.
+        When collecting our data, we wanted to consider features from reliable data sources that were most likely 
+        to have an effect on political data. We focused on three    different categories of data: demographic, economic, 
+        and political data. The demographic data, extracted from the census, highlights sex, race, age (in ranges), and 
+        hispanic descent. Economic data, including GDP, personal consumption expenditure, and personal income are sourced 
+        from the bureau of economic analysis. Lastly, presidential approval rating from Gallup polls and data on congressional 
+        seats completed the last component of our feature set: political data.
         </p>
         <p>
-        Due to constraints from being able to meet in person, we decided that entering all of our data into a Google Sheet would be the best way to combine all of our features. We had 100 rows, one for each state in the years 2012 and 2016, and 26 columns. Many of our values within features were very large, so we normalized the features between 0 and 1. The Google Sheet was then exported as a csv file so that we were able to use machine learning libraries and parse data using Python with ease. 
+        Due to constraints from being able to meet in person, we decided that entering all of our data into a Google Sheet 
+        would be the best way to combine all of our features. We had 100 rows, one for each state in the years 2012 and 
+        2016, and 26 columns. Many of our values within features were very large, so we normalized the features between 0 
+        and 1. The Google Sheet was then exported as a csv file so that we were able to use machine learning libraries and 
+        parse data using Python with ease. 
         </p>
         <b>Unsupervised Learning Portion: </b>
         <h4>Principal Component Analysis</h4>
@@ -85,30 +94,26 @@
           the variance of the dataset.  
         </p>
         <p>
-        We compared our KMeans results with 2 clusters to the true results of the 2012 and 2016 election in order to calculate a misclassification rate. 
+        We compared our KMeans results with 2 clusters to the true results of the 2012 and 2016 election in order to calculate 
+        a misclassification rate. 
         </p>
-        <div style="width: 100%"> 
-          <img src="Classification Accuracy.png" style="width:100%"/>
-        </div>
-        <p><b>Supervised Learning Portion: </b>
-          With regards to next steps, we plan to begin work on the supervised learning portion of the project. 
-          We plan to use supervised learning to train a model which will be able to predict how a state will 
-          lean in an election, given the relevant features. The algorithms we plan to use to analyze the data 
-          are support vector machines and neural networks. Support vector machines will help us classify the 
-          states into their corresponding political groups. With creating a neural network, we will need to 
-          do a bit more work. We’ll need to include more data points (election data from 2004 and 2008) in 
-          addition to the current data points we have for 2012 and 2016. We plan to double the data points 
-          so that we have more information with which to train our model. For these algorithms, we plan to 
-          use the five components which resulted from our principal component analysis from the 
-          unsupervised learning portion of the project. Once we train our models, we plan to test them with 
-          data pulled from the recent general election (2020). However, since the relevant features will most 
-          likely not have the proper data yet, we will need to use data from the previous year (2019).
+        <b>Supervised Learning Portion</b>
+        <h4>Neural Networks</h4>
+        <p></p>
+        <h4>SVM</h4>
+        <p>
+          We decided to use the support vector machine algorithm to validate the output from the neural network analysis. 
+          In order to do so, we settled on a linear binary classifier because we wanted to see how the results compared (binary
+          versus proportion of DNC to GOP votes).
         </p>
+        <h4>Random Forest</h4>
+        <p></p>
       </section>
 
       <!-- Results -->
       <section>
         <h2>Results</h2>
+        <h3>Overview</h3>
         <p> 
           The specific problem that we are going to solve is predicting the ratio of Republican to Democratic 
           popular vote by state. Our approach is unique as we intend to use machine learning algorithms, not 
@@ -120,11 +125,42 @@
           common to those that we want to incorporate and validate our belief that predictions can be made 
           accurately on a state level.
         </p>
+        <h3>Unsupervised Learning Analysis</h3>
+        <p>
+          <b>K-Means (with PCA): 74% (2012) and 84% (2016)</b> 
+          <b>2012 Accuracy: 74%</b>
+          <div style="width: 100%"> 
+            <img src="kmeans_2012.png" style="width:100%"/>
+          </div>
+          <b>2016 Accuracy: 84%</b>
+          <div style="width: 100%"> 
+            <img src="kmeans_2016.png" style="width:100%"/>
+          </div>
+        </p>
+        <h3>Supervised Learning Analysis</h3>
+        <p>
+          <b>Neural Networks: </b>
+        </p>
+        <p>
+          <b>SVM: 78%</b> 
+          Included is our classification report:
+          <div style="width: 100%">
+            <img src="svm_classification_model.png" style="width:100%"/>
+          </div>
+          and below we have the accuracy graphic (78%):
+          <div style="width: 100%">
+            <img src="svm_2020.png" style="width:100%"/>
+          </div>
+        </p>
+        <p>
+          <b>Random Forest: </b>
+        </p>
       </section>
 
       <!-- Discussion -->
       <section>
         <h2>Discussion</h2>
+        <h3>Overview</h3>
         <p>
           One minor risk is we believe that election predictions can affect voting behavior, but overall we do 
           not think that there are significant risks associated with this project. In the final stages of our model, we will run 
@@ -136,6 +172,22 @@
           which features have either a direct or indirect influence on each state's vote. This way, future polls could 
           implement this information in order to be more accurate. By using supervised learning, we will hopefully build 
           a more accurate model which would be used to predict future elections.
+        </p>
+        <h3>Unsupervised Learning Analysis</h3>
+        <p>
+          Based off of our principal component analysis, we were able to greatly reduce the amount of features when it came 
+          to K-Means clustering. In the graphic above, we see a great difference between the accuracy of the two election years 
+          (2012 and 2016). This could be due to a number of factors including (but not limited to), population/immigraiton change,
+          political makeup, and presidential approval rating.
+        </p>
+        <h3>Supervised Learning Analysis</h3>
+        <p>
+          While our algorithms vary in their accuracy scores, our group was overall unsurprised by the relatively low accuracy of 
+          models. This can be attributed to two main reasons, the first of which is that the feature data for states for 2020 has not 
+          been processed yet, and is thus, not readily available for public use. Our group needed to either use data from 2019 or approximate 
+          data from past years. The second reason is that this year is highly unlike past election years mainly due to the global pandemic 
+          (COVID-19) and record voter turnout. Condiering these factors, it is unsurprising that our algorithms have relatively low 
+          accuracy.
         </p>
       </section>
 
