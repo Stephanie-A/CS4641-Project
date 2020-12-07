@@ -154,9 +154,7 @@
         </p>
         <p>
           </br>
-          <b>Neural Networks </b>
-          </br>
-          <b> Multi-Layer Perceptron Binary Classifier</b>
+          <b>Neural Networks: Multi-Layer Perceptron Binary Classifier</b>
           </br>
           Included is our classification report:
           <div style="width: 100%">
@@ -177,8 +175,8 @@
             </br>
             </br>
             <b> Loss Curves:</b>
-          <div style="width: 50%">
-            <img src="loss_curves.JPG" style="width:50%"/>
+          <div style="width: 85%">
+            <img src="loss_curves.JPG" style="width:85"/>
           </div>
           </br>
           After plotting the loss curves, we noticed some interesting trends. The networks that converged relatively quickly and with a near 
@@ -187,6 +185,7 @@
           </br>
          </br>
           <b>Classification Report for traditionally converging loss curve:</b>
+          </br>
           <div style="width: 100%">
             <img src="good_loss_conf_mat_and_class.JPG" style="width:100%"/>
           </div>   
@@ -196,6 +195,7 @@
           </div>   
           </br>
           <b>Classification Report for abnormally converging loss curve:</b>
+          </br>
           <div style="width: 100%">
             <img src="bad_loss_conf_and_class.JPG" style="width:100%"/>
           </div>   
@@ -211,6 +211,19 @@
           </br>
           </br>
         </p>  
+        <p>
+          </br>
+          <b>Neural Networks: Multi-Layer Perceptron Regressor</b>
+          </br>        
+          We built two additional neural networks: a regressor that predicts the percentage of GOP votes by state, and 
+          a regressor that predicts the percentage of DNC votes by state. After attempting to otpmize hyperparameters and build these
+          two networks, we found that loss and accuracy was very volatile along with R squared values that were low or infeasible. 
+          We attribute this to the lack of consistent training data for our model. Additionally, as mentioned a few times in this
+          report, the data that we tested the model on (the 2020 election) was an atypical election year. With record voter turnout 
+          and unusual voting patterns observed due to COVID-19, 2012 and 2016 are difficult datasets to train our network on to predict
+          party voting percentages for 2020. We feel that the addition of past election years would greatly increase
+          the usefulness of our Multi-Layer Perceptron Regressor models and result in an presentable output. 
+        </p>
         <p>
           <b>SVM: 78%</b> 
           Included is our classification report:
