@@ -29,7 +29,7 @@
           year as it is an election year. 
         </p>
         <p>
-          An interesting thing to note is that few studies look at how a variety of features influence the 
+          Something interesting to note is that few studies look at how a variety of features influence the 
           election on a state level. We plan to investigate features such as demographics, government data, and 
           economic data to see what features help to predict the outcome of an election. Additionally, the results for 
           most studies are binary, whether one candidate will win the election. We plan to look at the ratio between 
@@ -47,10 +47,11 @@
           U.S. presidential elections tend to oscillate wildly in the months before the election takes place, 
           so we intend to not use polling and prediction market methods in favor of more objective data points. 
           We believe this combined with machine learning techniques will allow us to find more complex trends 
-          that would be hard to notice via more classical methods. Around halfway through our project duration, 
+          that would be hard to notice via more classical methods.
+<!--           Around halfway through our project duration, 
           we want to gather all data sets we would need from at least 2 election cycles, a general feature list 
           with relevant feature engineering, and a set of most impactful features found via preliminary results 
-          from unsupervised learning.
+          from unsupervised learning. ** removed because outdated -->
         </p>
         <b>Data Combination/Cleaning </b>
         <p>       
@@ -63,7 +64,7 @@
         seats completed the last component of our feature set: political data.
         </p>
         <p>
-        Due to constraints from being able to meet in person, we decided that entering all of our data into a Google Sheet 
+        Due to the inability to meet in person, we decided that entering all of our data into a Google Sheet 
         would be the best way to combine all of our features. We had 100 rows, one for each state in the years 2012 and 
         2016, and 26 columns. Many of our values within features were very large, so we normalized the features between 0 
         and 1. The Google Sheet was then exported as a csv file so that we were able to use machine learning libraries and 
@@ -102,8 +103,8 @@
         <h4>Neural Networks</h4>
         <p>
           We originally intended to design three neural networks. The first neural network would be a multi layered perceptron binary
-          classifier. The next two neural networks would be multi layered peceptron regressors, one for percentage of GOP voters by state
-          and the other for the percentage of DNC voters by state. 
+          classifier created using the MLPClassifier class of the scikit-learn python library. The next two neural networks would be multi layered peceptron regressors, one for percentage of GOP voters by state
+          and the other for the percentage of DNC voters by state. These two neural networks would be built with the MLPRegressor class of the sckikit-learn python library.
         </p>
         <h4>SVM</h4>
         <p>
@@ -179,9 +180,7 @@
             <img src="loss_curves.JPG" style="width:85"/>
           </div>
           </br>
-          After plotting the loss curves, we noticed some interesting trends. The networks that converged relatively quickly and with a near 
-          zero loss value resulted in low accuracy when testing the model with 2020 data. On the other hand, the networks that converged slower and
-          with a higher loss value resulted in higher accuracy when testing the 2020 model. Visuals are provided below.
+          After plotting the loss curves, we noticed some interesting trends. The networks that converged relatively quickly with a near zero loss value resulted in low accuracy when testing the model with 2020 data. On the other hand, the networks that converged slower with a higher loss value resulted in higher accuracy when testing the 2020 model. Visuals are provided below.
           </br>
          </br>
           <b>Classification Report for traditionally converging loss curve:</b>
@@ -204,7 +203,7 @@
             <img src="bad_loss_map.JPG" style="width:100%"/>
           </div>
           </br>
-          We believe that our dataset was too small for the complicated hyperparameters that belong to a neural network. For this
+          We believe that our dataset was too small for the complicated hyperparameters that are inherent to a neural network. For this
           reason, our neural network overfitted past data and was overconfident in predictions, thus resulting in a high number 
           of false negatives when the loss value was low. Further explanations for unusual behavior are discussed in the 
           model improvement section. 
@@ -215,13 +214,12 @@
           </br>
           <b>Neural Networks: Multi-Layer Perceptron Regressor</b>
           </br>        
-          We built two additional neural networks: a regressor that predicts the percentage of GOP votes by state, and 
+          We built two additional neural networks: a regressor that predicts the percentage of GOP votes by state and 
           a regressor that predicts the percentage of DNC votes by state. After attempting to otpmize hyperparameters and build these
           two networks, we found that loss and accuracy was very volatile along with R squared values that were low or infeasible. 
-          We attribute this to the lack of consistent training data for our model. Additionally, as mentioned a few times in this
-          report, the data that we tested the model on (the 2020 election) was an atypical election year. With record voter turnout 
+          We attribute this to the atypical election year of 2020. With record voter turnout 
           and unusual voting patterns observed due to COVID-19, 2012 and 2016 are difficult datasets to train our network on to predict
-          party voting percentages for 2020. We feel that the addition of past election years would greatly increase
+          party voting percentages for 2020 due to a lack of consistency in patterns. We feel that the addition of past election years would greatly increase
           the usefulness of our Multi-Layer Perceptron Regressor models and result in an presentable output. 
         </p>
         <p>
@@ -246,9 +244,10 @@
         <h3>Overview</h3>
         <p>
           One minor risk is we believe that election predictions can affect voting behavior, but overall we do 
-          not think that there are significant risks associated with this project. In the final stages of our model, we will run 
+          not think that there are significant risks associated with this project.
+<!--           In the final stages of our model, we will run 
           a 5-fold cross validation with our existing data. We will then use our model to predict the 2020 presidential 
-          election, which will allow us to verify the model.
+          election, which will allow us to verify the model. ** outdated -->
         </p>
         <p>
           Our project has two main important contributions. By using unsupervised learning, we will be able to determine 
@@ -266,8 +265,8 @@
         <h3>Supervised Learning Analysis</h3>
         <p>
           While our algorithms vary in their accuracy scores, our group was overall unsurprised by the relatively low accuracy of 
-          models. This can be attributed to two main reasons, the first of which is that the feature data for states for 2020 has not 
-          been processed yet, and is thus, not readily available for public use. Our group needed to either use data from 2019 or approximate 
+          models. This can be attributed to two main reasons, the first of which is that the feature data for states for 2020 have not 
+          been processed yet, and thus, is not readily available for public use. Our group needed to either use data from 2019 or approximate 
           data from past years. The second reason is that this year is highly unlike past election years mainly due to the global pandemic 
           (COVID-19) and record voter turnout. Condiering these factors, it is unsurprising that our algorithms have relatively low 
           accuracy.
@@ -279,11 +278,13 @@
         <h2>Recommendations for Future Deployment</h2>  
         <h3>Model Recommendations and Improvements</h3>
           <p>
-             If we were to expand upon this model, we would recommend a classifier over a regressor for supervised learning techniques. Using a classifier, our lowest accuracy was 78%. We suggest that the best model, of those that we used, for predicting election outcomes was the Random Forest classifier. Not only did the Random Forest classifier result in the most accurate testing results, but this model has the highest precision, recall, and f1-score values. We felt that the neural network on our small dataset overcomplicated the model and lead to overfitting, while our SVM model simply did not achieve the same success that our Random Forest Classifier was able to. 
+             If we were to expand upon this model, we would recommend a classifier over a regressor for supervised learning techniques. Using a classifier, our lowest accuracy was 78%. We suggest that the best model, of those that we used, for predicting election outcomes was the Random Forest classifier. Not only did the Random Forest classifier result in the most accurate testing results, but this model has the highest precision, recall, and f1-score values. We felt that the neural network, on our small dataset, overcomplicated the model and led to overfitting, while our SVM model simply did not achieve the same success that our Random Forest Classifier was able to. 
         </br>
-         A major improvement we would make to our model is increasing its robustness. This would be done by gathering more training data. The primary reason why we were only able to include 2012 and 2016 election years was due to the financial roadblock of obtaining access to large, validated databases. If this project was completed in a research lab or another entity with financial backing, achieving a more robust model would be less of a challenge. Additionally, we would want to incorporate a way to capture the political pulse of a state on a more frequent basis. With election years occuring every four years, there is a long period of time between training datasets where the political makeup of a state can shift dramatically. 
         </br>
-        As this was all of our first times implementing machine learning algorithms to solve real world problems, we were able to learn an incredible amount as we went through the project. We are very grateful to the teaching staff for their constant advice and support through this process and look forward to tackling more problems with machine learning in the future! 
+         A major improvement we would make to our model is increasing its robustness. This would be done by gathering more training data. The primary reason why we were only able to include 2012 and 2016 election years was due to the financial roadblock of obtaining access to large, validated databases. If this project was completed in a research lab or another entity with financial backing, achieving a more robust model would be less of a challenge. Additionally, we would want to incorporate a way to capture the political pulse of a state on a more frequent basis. With election years occuring every four years, there is a long period of time between training datasets when the political makeup of a state can shift dramatically. 
+        </br>
+        </br>
+        As this was all of our first times implementing machine learning algorithms to solve real world problems, we were able to learn an incredible amount as we went through the project. All of our machine learning attempts resulted in an accuracy that is greater than if one were to randomly assign states as Democrat or Republican (50%). We are very grateful to the teaching staff for their constant advice and support through this process and look forward to tackling more problems with machine learning in the future! 
           </p>
       </section>
 
