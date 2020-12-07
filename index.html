@@ -144,11 +144,67 @@
         </p>
         <h3>Supervised Learning Analysis</h3>
         <p>
-          <b>Neural Networks: </b>
+          <b>Training:</b> 2012 Presidential Election, 2016 Presidential Election
         </p>
-        going to write details abt all the pics that i uploaded to the slides after the presentation in the morn but i find myself
-        very tired because i was very dumb about time management lol. will talk abt the classifier and two regressors and why i think
-        that more data would result in a easier to understand loss function and more robust matter, my apologies, goodnight all <3
+        <p>
+          <b>Testing:</b> 2020  Presidential Election
+        </p>
+        <p>
+          <b>Random Guess Accuracy Probability:</b> 50%
+        </p>
+        <p7>
+          <b>Neural Networks </b>
+          <b> Multi-Layer Perceptron Binary Classifier: 80% </b>
+          Included is our classification report:
+          <div style="width: 100%">
+            <img src="Lbgfs_Conf_Mat_and_class_rep.JPG" style="width:100%"/>
+          </div>          
+          and below we have the accuracy graphic (80%)
+          <div style="width: 100%">
+            <img src="lbgfs_map.png" style="width:100%"/>
+          </div>
+          <p>
+            Using Randomized Search Cross Validation and Grid Search Cross Validation, we were able to optimize tuning of our 
+            hyperparameters. This allowed us to produce a binary classification neural network that correctly classified the results
+            of the 2020 election with 80% accuracy, 81% precision, 80% recall, and a f1-score of 0.80. Additionally, there were 7
+            instances of type 1 error and 3 instances of type 2 error. Because we were training 
+            our model only on the two most recent election cycles with hopes of identifying current trends in voting patterns, we
+            wanted to analyze more than the statistics reported in the classification report. To do this, we plotted loss
+            curves from neural networks obtained with differently tuned hyperparameters.  
+          </p>
+          <p>
+            <b> Loss Curves:</b>
+          <div style="width: 100%">
+            <img src="loss_curves.JPG" style="width:100%"/>
+          </div>
+          </br>
+          After plotting the loss curves, we noticed some interesting trends. The networks that converged relatively quickly and with a near 
+          zero loss value resulted in low accuracy when testing the model with 2020 data. On the other hand, the networks that converged slower and
+          with a higher loss value resulted in higher accuracy when testing the 2020 model. Visuals are provided below.
+         </br>
+          <b>Classification Report for traditionally converging loss curve:</b>
+          <div style="width: 100%">
+            <img src="good_loss_conf_mat_and_class.JPG" style="width:100%"/>
+          </div>   
+           <b>Accuracy Map for traditionally converging loss curve:</b>
+          <div style="width: 100%">
+            <img src="good_loss_map.JPG" style="width:100%"/>
+          </div>   
+          <b>Classification Report for abnormally converging loss curve:</b>
+          <div style="width: 100%">
+            <img src="bad_loss_conf_and_class.JPG" style="width:100%"/>
+          </div>   
+           <b>Accuracy Map for abnormally converging loss curve:</b>
+          <div style="width: 100%">
+            <img src="bad_loss_map.JPG" style="width:100%"/>
+          </div>
+          </br>
+          We believe that our dataset was too small for the complicated hyperparameters that belong to a neural network. For this
+          reason, our neural network overfitted past data and was overconfident in predictions, thus resulting in a high number 
+          of false negatives when the loss value was low. Further explanations for unusual behavior are discussed in the 
+          model improvement section. 
+          </p>
+        </p7>  
         <p>
           <b>SVM: 78%</b> 
           Included is our classification report:
@@ -197,6 +253,19 @@
           (COVID-19) and record voter turnout. Condiering these factors, it is unsurprising that our algorithms have relatively low 
           accuracy.
         </p>
+      </section>
+
+      <!--Recommendations for Future Deployment --> 
+      <section>
+        <h2>Recommendations for Future Deployment</h2>  
+        <h3>Model Recommendation</h3>
+          <p>
+            
+          </p>
+        <h3>Model Improvements </h3>
+          <p>
+            
+          </p>
       </section>
 
       <!-- References -->
