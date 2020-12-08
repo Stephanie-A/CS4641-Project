@@ -113,7 +113,10 @@
           versus proportion of DNC to GOP votes).
         </p>
         <h4>Random Forest</h4>
-        <p></p>
+        <p>In addition to the Neural Network and SVM algorithms, we decided to implement a Random Forest Classifier. 
+          This classifier would predeict whether a state would vote for the democratic or republican candidate in a general election.
+          We chose to use Random Forest because it is an extremely popular algorithm for classification style problems, and we hoped it would work well in our project for classifying states.
+          We used the Random Forest Classifier from the scikit-learn library, and focused on tuning hyperparameters to optimize the model.</p>
       </section>
 
       <!-- Results -->
@@ -232,9 +235,69 @@
           <div style="width: 100%">
             <img src="svm_2020.png" style="width:100%"/>
           </div>
-        </p>
+        </p> 
         <p>
           <b>Random Forest: </b>
+          Random Forest is an ensemble-style classifier in which a "forest" of decision trees are generated from random subsets of the training data.
+          We first create a random forest classifier using the default scikit-learn parameters and compared the accuracy of the model to our other algorithms.
+        </p>
+        <p>
+          <br>
+            <b>Default Parameters and Results:</b>
+          </br>
+        </p>
+        
+        <div style="display: flex; flex-direction: row;">
+          <img src="default_parameters.png" style="height: 17em; max-width: 100%;"/>
+          <div>
+            <img src="default_rf_metrics.png" style="height: 8em; max-width: 100%;"/>
+            <img src="default.png" style="width: 100%;"/>
+          </div>
+        </div>
+        <p>
+          Once we had established a baseline from where we wanted to improve this model, we turned to hyperparameter tuning.
+          The first step of this process was determining which hyperparameters we should focus on adjusting. 
+          Using scikit-learn's Random Forest Classifier documentation and research of other publicly available projects using Random Forest we chose six hyperparameters to tune.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+          <div>
+            <p style="text-align: left;">
+              Chosen Parameters:
+            </p>
+            <img src="chosen-parameters.png" style="height: 17em; max-width: 100%;"/>
+          </div>
+          <div>
+            <p style="text-align: left;">
+              We then used the Randomized Search Cross Validation and Grid Search Cross Validation libraries from scikit-learn to select optimal values for these hyperparameters, and ended with these values:
+            </p>
+            <img src="opt-parameters.png" style="height: 8em; max-width: 100%;"/> 
+          </div>  
+          
+        </div>
+        <p>
+          We then fit a new Random Forest Classifier model using these hyperparameters, and tested against the original model using the 2020 election results.
+        </p>
+        <div style="display: flex; flex-direction: row;">
+          <div style="width: 50%;">
+            <p>
+              Original Model
+            </p>
+            <img src="default_rf_metrics.png" style="height: 8em; max-width: 100%;"/>
+            <img src="default.png" style="width: 100%;"/>
+          </div>
+          <div style="width: 50%;">
+            <p>
+              Optimized Model
+            </p>
+            <img src="opt_rf_metrics.png" style="height: 8em; max-width: 100%;"/>
+            <img src="optimized2.png" style="width: 100%;"/>
+          </div>
+        </div>
+        <p>
+          As you can see, our model's accuracy improved from 76% with the original, default hyperparameters, to 82% with the optimized hyperparameters found using Randomized Search Cross Validation and Grid Search Cross Validation.
+          With these optimizations, the Random Forest Classifier surpassed SVM and our Neural Networks to be the most accurate supervised learning model we developed.
+          However, this does not mean that the model was without flaws.
+          Similar to the Neural Network, our Random Forest model tended to prefer classifying states as voting Republication rather than Democrat, which was reflected in the high precision and low recall for blue states (labeled with a 0) and low precision but high recall for red states (labeled with a 1).
         </p>
       </section>
 
